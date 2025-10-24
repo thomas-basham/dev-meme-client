@@ -12,28 +12,26 @@ export default function LoginForm({ setAuth }) {
       })
       .then(function (response) {
         console.log(response);
-        // setAuth({ token: response.data.token });
+        setAuth(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-
-    console.log(event.target.username.value);
-    console.log(event.target.password.value);
   };
+
   return (
     <form
       onSubmit={(event) => loginSubmitHandler(event)}
       className="flex flex-col justify-between w-md mx-auto my-5 h-48 "
     >
-      <label htmlFor="">Username</label>
+      <label htmlFor="username">Username</label>
       <input
         className="border-2 p-1"
         type="text"
         name="username"
         id="username"
       />
-      <label htmlFor="">Password</label>
+      <label htmlFor="password">Password</label>
       <input
         className="border-2 p-1"
         type="password"
